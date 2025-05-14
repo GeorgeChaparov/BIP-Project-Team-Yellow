@@ -1,161 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 using KVK_DataAccess.EWS_PME;
 
 using Newtonsoft.Json.Linq;
 
 
-
 namespace KVK_DataAccess
 {
     public partial class Form1 : Form
     {
-        
+        double CurrentPrices = 0;
+        List<string> Forecast = new List<string>();
+        List<double> m_BigSolar = new List<double>();
+        List<double> m_SmallSolar = new List<double>();
+        List<double> m_ISS = new List<double>();
+        List<double> m_JSS = new List<double>();
+
         public Form1()
         {
             InitializeComponent();
-
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-          
-
-            //var request = new GetWebServiceInformationRequest { };
-            //try
-            //{
-            //    // Call the service methodvar response = client.GetWebServiceInformation(request);
-            //    // Extract data from the response and display it
-            //    var response = client.GetWebServiceInformation(request);
-            //    if (response.GetWebServiceInformationVersion != null)
-            //    {
-            //        var ver = response.GetWebServiceInformationVersion;
-            //        lblResult.Text = $"Service Version: {ver.MajorVersion}.{ver.MinorVersion}";
-            //    }
-            //    else
-            //    {
-            //        lblResult.Text = "No version info returned.";
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error calling service: " + ex.Message);
-            //}
-            //finally
-            //{
-            //    client.Close();
-            //}
-
-            //var request = new GetItemsRequest
-            //{
-            //    GetItemsIds = new[] { "4@1042@V" }, // Replace with actual IDs
-            //    version = "1.0", // Optional, specify if required
-            //    metadata = true  // Optional, set to true if metadata is needed
-            //};
-
-            //var response = client.GetItems(request);
-
-
-            //// Clear the ListBox before adding new items
-            //listBoxMeasurements.Items.Clear();
-
-            //if (response.GetItemsItems?.ValueItems != null)
-            //{
-            //    foreach (var item in response.GetItemsItems.ValueItems)
-            //    {
-            //        // Add each item's details to the ListBox
-            //        listBoxMeasurements.Items.Add($"Item Name: {item.Name}, Item ID: {item.Id}");
-            //    }
-            //}
-            //else
-            //{
-            //    listBoxMeasurements.Items.Add("No items returned by the service.");
-            //}
-
-            //var request = new GetContainerItemsRequest
-            //{
-            //    GetContainerItemsIds = new[] { "0" }, // Replace with actual IDs
-            //    version = "1.0", // Optional, specify if required
-            //    metadata = true  // Optional, set to true if metadata is needed
-            //};
-
-            //try
-            //{
-            //    // Call the service method
-            //    var response = client.GetContainerItems(request);
-
-            //    // Clear the ListBox before adding new items
-            //    listBoxMeasurements.Items.Clear();
-
-            //    if (response.GetContainerItemsItems != null)
-            //    {
-            //        foreach (var item in response.GetContainerItemsItems)
-            //        {
-            //            // Add each item's details to the ListBox
-            //            listBoxMeasurements.Items.Add($"Item Name: {item.Name}, Item ID: {item.Id}");
-
-            //            if (item.Items != null && item.Items.ContainerItems != null)
-            //            {
-            //                foreach (var subItem in item.Items.ContainerItems)
-            //                {
-            //                    // Add sub-container details to the ListBox
-            //                    listBoxMeasurements.Items.Add($"  Sub-Item Name: {subItem.Name}, Sub-Item ID: {subItem.Id}");
-            //                }
-            //            }
-
-            //        }
-            //    }
-            //    else
-            //    {
-            //        listBoxMeasurements.Items.Add("No container items returned by the service.");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Error: {ex.Message}", "Service Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //finally
-            //{
-            //    client.Close();
-            //}
-
-            //var infoRequest = new GetWebServiceInformationRequest();
-            //var infoResponse = client.GetWebServiceInformation(infoRequest);
-
-            //if (infoResponse.GetWebServiceInformationSupportedOperations != null)
-            ////{
-            ////    foreach (var operation in infoResponse.GetWebServiceInformationSupportedOperations)
-            ////    {
-            ////        listBoxMeasurements.Items.Add($"Supported Operation: {operation}");
-            ////    }
-            ////}
-            ////else
-            ////{
-            ////    listBoxMeasurements.Items.Add("No supported operations returned by the service.");
-            ////}
-
+            //MSSQL();
+            ISS();
+            JSS();
+            SmallSolar();
+            BigSolar();
+            CalculateConsumtion();
+            
         }
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
-            SqlConnection();
+            double ISS = GetPower();
             NordPool();
-            Weather();
+           
+
+            Console.WriteLine($"ISS: {ISS}");
+            lblValue1.Text = $"{CurrentPrices} EUR/kWh";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -163,63 +49,47 @@ namespace KVK_DataAccess
 
         }
 
-        async void Weather()
+        async void Weather(int hoursForecast)
         {
-            string url2 = "https://api.open-meteo.com/v1/forecast?latitude=55.7033&longitude=21.1443&hourly=temperature_2m,cloudcover,direct_radiation,weathercode&timezone=Europe%2FRiga";
+            string url = "https://api.open-meteo.com/v1/forecast?latitude=55.7033&longitude=21.1443&hourly=temperature_2m,cloudcover,direct_radiation,weathercode&timezone=Europe%2FRiga";
 
-            HttpClient client3 = new HttpClient();
-            var response3 = await client3.GetStringAsync(url2);
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync(url);
 
-            JsonDocument doc2 = JsonDocument.Parse(response3);
-            var root = doc2.RootElement;
+            JsonDocument doc = JsonDocument.Parse(response);
+            var root = doc.RootElement;
 
             var hours = root.GetProperty("hourly").GetProperty("time");
-            var temperatures = root.GetProperty("hourly").GetProperty("temperature_2m");
             var clouds = root.GetProperty("hourly").GetProperty("cloudcover");
             var codes = root.GetProperty("hourly").GetProperty("weathercode");
 
-            Console.WriteLine("Weather in Klaipeda (hourly forecast):");
-
-            for (int i = 0; i < 5; i++) // show next 5 hours
+            for (int i = 0; i < hoursForecast; i++)
             {
-                Console.WriteLine($"[{hours[i].GetString()}] Temp: {temperatures[i]}°C, Cloud cover: {clouds[i]}%, Weather code: {codes[i]}");
-            }
-
-            switch (codes[1].ToString())
-            {
-                case "0":
-                    Console.WriteLine("Clear"); break;
-                default:
-                    break;
+                Forecast.Add($"[{hours[i].GetString()}] Cloud cover: {clouds[i]}%, Weather code: {codes[i]}");
             }
         }
 
         async void NordPool()
         {
-            var client2 = new HttpClient();
+            var client = new HttpClient();
             string url = "https://dashboard.elering.ee/api/nps/price";
 
-            var response2 = await client2.GetStringAsync(url);
-            JObject json = JObject.Parse(response2);
+            var response = await client.GetStringAsync(url);
+            JObject json = JObject.Parse(response);
 
-            var prices = json["data"]["ee"]; // gali būti "lt", "lv", "ee"
+            var prices = json["data"]["ee"];
 
             foreach (var item in prices)
             {
                 long timestamp = item["timestamp"].Value<long>();
-                double price = item["price"].Value<double>() / 10000; // API grąžina ct/kWh
-
-                DateTime time = DateTimeOffset.FromUnixTimeSeconds(timestamp).DateTime;
-                textBox1.Text = $"{time:yyyy-MM-dd HH:mm} - {price} EUR/kWh";
+                CurrentPrices = item["price"].Value<double>() / 10000;
             }
-
         }
 
-
-        void SqlConnection()
+        double GetPower()
         {
             var client = new DataExchangeClient();
-            client.ClientCredentials.HttpDigest.ClientCredential = new NetworkCredential("kvk", "KvK-DataAccess1", "172.30.10.11");
+            client.ClientCredentials.HttpDigest.ClientCredential = new NetworkCredential("kvk", "KvK-DataAccess1", "172.16.16.60");
 
             client.ClientCredentials.HttpDigest.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Impersonation;
             try
@@ -227,31 +97,25 @@ namespace KVK_DataAccess
                 // Create the request object
                 var request = new GetValuesRequest
                 {
-                    GetValuesIds = new[] { "4@1042@V", "6@1042@V", "7@1042@V", "8@1042@V" }, // Replace with actual value ID
+                    GetValuesIds = new[] {"4@1042@V"}, // Replace with actual value ID
                     version = "1.0"
+                };
+
+                var request2 = new SetValuesRequest
+                {
+                    SetValuesItems = { }
                 };
 
                 // Call the service method
                 var response = client.GetValues(request);
 
-                if (response.GetValuesItems != null && response.GetValuesItems.Length > 0)
+                if (response.GetValuesItems == null || response.GetValuesItems.Length == 0)
                 {
-                    var valueItem1 = response.GetValuesItems[0];
-                    lblValue1.Text = $"ISS-01 Real Power: {valueItem1.Value}";
-                    var valueItem2 = response.GetValuesItems[1];
-                    lblValue2.Text = $"Sun plant 90kW Real Value: {valueItem2.Value}";
-                    var valueItem3 = response.GetValuesItems[2];
-                    lblValue3.Text = $"JSS-308 Real Power: {valueItem3.Value}";
-                    var valueItem4 = response.GetValuesItems[3];
-                    lblValue4.Text = $"Sun plant 4kW Real Value: {valueItem4.Value}";
+                    return 0;
                 }
-                else
-                {
-                    lblValue1.Text = "Value: N/A";
-                    lblValue2.Text = "Value: N/A";
-                    lblValue3.Text = "Value: N/A";
-                    lblValue4.Text = "Value: N/A";
-                }
+
+                var ISS = response.GetValuesItems[0];
+                return Convert.ToDouble(ISS.Value);
             }
             catch (Exception ex)
             {
@@ -261,6 +125,192 @@ namespace KVK_DataAccess
             {
                 client.Close();
             }
+
+            return 0;
+        }
+
+        void MSSQL()
+        {
+            string connectionString = "Server=172.16.16.60;Database=BIP_Project;User Id=kvk;Password=KvK-DataAccess1;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                int WhatToDoWithElectricity = 0;
+                int ElectricityScenario = 5;
+
+                // Corrected query with parameters
+                string updateQuery = "UPDATE BIP_Result SET BatteryStatus = @WhatToDo, Scene = @Scenario WHERE Team_Name = 'Yellow_Team'";
+
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    // Add parameters with proper values
+                    command.Parameters.AddWithValue("@WhatToDo", WhatToDoWithElectricity);
+                    command.Parameters.AddWithValue("@Scenario", ElectricityScenario);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        void ISS()
+        {
+            string connectionString = "Server=172.16.16.60;Database=ION_Data;User Id=kvk;Password=KvK-DataAccess1;";
+            List<double> results = new List<double>(); // To store the retrieved values
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT [kW tot mean] FROM [vw_ISS-01_History_Mean]";
+
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                m_ISS.Add(reader.GetDouble(0));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void JSS()
+        {
+            string connectionString = "Server=172.16.16.60;Database=ION_Data;User Id=kvk;Password=KvK-DataAccess1;";
+            List<double> results = new List<double>(); // To store the retrieved values
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT [kW tot mean] FROM [vw_JSS-308_History_Mean]";
+
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                m_JSS.Add(reader.GetDouble(0));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void SmallSolar()
+        {
+            string connectionString = "Server=172.16.16.60;Database=ION_Data;User Id=kvk;Password=KvK-DataAccess1;";
+            List<double> results = new List<double>(); // To store the retrieved values
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT [Real Power] FROM [vw_Solar-4kW_Power_history]";
+
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                m_SmallSolar.Add(reader.GetDouble(0));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void BigSolar()
+        {
+            string connectionString = "Server=172.16.16.60;Database=ION_Data;User Id=kvk;Password=KvK-DataAccess1;";
+            List<double> results = new List<double>(); // To store the retrieved values
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT [Real Power] FROM [vw_Solar-90kW_Power_history]";
+
+                using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                m_BigSolar.Add(reader.GetDouble(0));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void CalculateConsumtion()
+        {
+            List<double> smallest = m_BigSolar;
+
+            if (smallest.Count > m_SmallSolar.Count)
+            {
+                smallest = m_SmallSolar;
+            }
+
+            if (smallest.Count > m_ISS.Count)
+            {
+                smallest = m_ISS;
+            }
+
+            List<double> consumption = new List<double>(smallest);
+
+            for (int i = 0; i < smallest.Count; i++)
+            {
+                if (m_ISS[i] > 0)
+                {
+                    consumption[i] = m_BigSolar[i] + m_SmallSolar[i] + Math.Abs(m_ISS[i]) + Math.Abs(m_JSS[i]);
+
+                }
+                else
+                {
+                    //consumption[i] = m_BigSolar[i] + m_SmallSolar[i] + m_JSS[i] + m_ISS[i] ;
+                    consumption[i] = -5;
+                }
+                
+            }
+
+            int count = 0;
+            while (true)
+            {
+                double sum = 0;
+                for (int i = 0; i < 97; i++)
+                {
+                    count++;
+                    sum += consumption[i + count];
+
+                }
+
+            }
+            
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Weather(5);
         }
     }
 }
