@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.schneider-electric.com/common/dataexchange/2011/05" elementFormDefault="qualified" targetNamespace="http://www.schneider-electric.com/common/dataexchange/2011/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetWebServiceInformationRequest">
+    <xs:complexType>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWebServiceInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetWebServiceInformationVersion">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="MajorVersion" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MinorVersion" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="UsedNameSpace" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetWebServiceInformationSupportedOperations" type="tns:ArrayOfString" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetWebServiceInformationSupportedProfiles" type="tns:ArrayOfString1" />
+        <xs:element minOccurs="0" maxOccurs="1" name="SystemInfo" type="tns:GetWebServiceInformationSystem" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Operation" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Profiles" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetWebServiceInformationSystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetContainerItemsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetContainerItemsIds" type="tns:ArrayOfString2" />
+        <xs:element minOccurs="1" maxOccurs="1" name="GetContainerItemsParameter" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfString2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetContainerItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetContainerItemsItems" type="tns:ArrayOfContainerItemType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetContainerItemsErrorResults" type="tns:ArrayOfErrorResultType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetContainerItemsStatus" type="tns:GetContainerItemsResponseStatusType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfContainerItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContainerItem" type="tns:ContainerItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContainerItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Items">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ContainerItems" type="tns:ArrayOfContainerItemSimpleType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ValueItems" type="tns:ArrayOfValueItemTypeBase" />
+            <xs:element minOccurs="0" maxOccurs="1" name="HistoryItems" type="tns:ArrayOfHistoryItemType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AlarmItems" type="tns:ArrayOfAlarmItemType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:Metadata_12" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfContainerItemSimpleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContainerItem" type="tns:ContainerItemSimpleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContainerItemSimpleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfValueItemTypeBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="tns:ValueItemTypeBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueItemTypeBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Unit" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Writeable" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfHistoryItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryItem" type="tns:HistoryItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HistoryItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Unit" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:Metadata_12" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Metadata_12" />
+  <xs:complexType name="ArrayOfAlarmItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlarmItem" type="tns:AlarmItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AlarmItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:Metadata_12" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfErrorResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorResult" type="tns:ErrorResultType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetContainerItemsResponseStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetItemsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetItemsIds" type="tns:ArrayOfString2" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetItemsItems" type="tns:ArrayOfItemType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetItemsErrorResults" type="tns:ArrayOfErrorResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ValueItems" type="tns:ArrayOfValueItemType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="HistoryItems" type="tns:ArrayOfHistoryItemType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AlarmItems" type="tns:ArrayOfAlarmItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfValueItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="tns:ValueItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Unit" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:Metadata_12" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Writeable" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetValuesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetValuesIds" type="tns:ArrayOfString2" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetValuesItems" type="tns:ArrayOfValueTypeStateful" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetValuesErrorResults" type="tns:ArrayOfErrorResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfValueTypeStateful">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="tns:ValueTypeStateful" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueTypeStateful">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetValuesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SetValuesItems" type="tns:ArrayOfValueTypeStateless" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfValueTypeStateless">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="tns:ValueTypeStateless" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueTypeStateless">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SetValuesResults" type="tns:ArrayOfResultType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Result" type="tns:ResultType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHistoryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoryParameter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="Id" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoryFilter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoryResponseStatus" type="tns:HistoryResponseStatusType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoryHistoryRecords" type="tns:HistoryRecordsType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="HistoryResponseStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HistoryRecordsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Unit" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfHistoryRecordType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:Metadata_12" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfHistoryRecordType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryRecord" type="tns:HistoryRecordType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HistoryRecordType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:integer" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAlarmEventsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsParameter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsFilter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Types" type="tns:ArrayOfString3" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfString3">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Type" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAlarmEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsResponseStatus" type="tns:AlarmResponseStatusType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsAlarmEvents" nillable="true" type="tns:ArrayOfAlarmEventsType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AlarmResponseStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastUpdate" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="NeedsRefresh" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAlarmEventsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlarmEvent" type="tns:AlarmEventsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AlarmEventsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SourceID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SourceName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Acknowledgeable" type="xs:integer" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeStampOccurrence" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeStampTransition" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Priority" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:Metadata_12" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUpdatedAlarmEventsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsParameter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="LastUpdate" nillable="true" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="MoreDataRef" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsFilter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xs:integer" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Types" type="tns:ArrayOfString3" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpdatedAlarmEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsResponseStatus" type="tns:AlarmResponseStatusType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsAlarmEvents" type="tns:ArrayOfAlarmEventsType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcknowledgeAlarmEventsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AcknowledgeAlarmEventsIds" type="tns:ArrayOfString2" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcknowledgeAlarmEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="AcknowledgeAlarmEventsResults" type="tns:ArrayOfResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmEventTypesRequest">
+    <xs:complexType>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmEventTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmEventTypesTypes" type="tns:ArrayOfString3" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Subscribe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Delivery" type="tns:DeliveryType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Expires" type="xs:duration" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Filter" type="tns:SubscribeFilterType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" />
+      <xs:attribute name="Mode" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DeliveryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NotifyTo" type="tns:AddressType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubscribeFilterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="EventType" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Ids" type="tns:ArrayOfEventIdType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EventFilter" type="tns:GetEventsFilterType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="KeepAliveCycleTime" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEventIdType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Id" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute default="0" name="eventMode" type="xs:integer" />
+  </xs:complexType>
+  <xs:complexType name="GetEventsFilterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Types" type="tns:ArrayOfString3" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubscribeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionManager" type="tns:SubscriptionManagerType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Expires" type="xs:duration" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Results" type="tns:ArrayOfResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SubscriptionManagerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ForceValuesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ForceValuesItems" type="tns:ArrayOfValueTypeStateless" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ForceValuesResults" type="tns:ArrayOfResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnumsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetEnumIds" type="tns:ArrayOfString2" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnumsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetEnumsEnums" type="tns:ArrayOfEnumsType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetEnumsErrorResults" type="tns:ArrayOfErrorResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfEnumsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Enum" type="tns:EnumsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EnumsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EnumValues" type="tns:ArrayOfEnumType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEnumType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnumValue" type="tns:EnumType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EnumType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Text" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAlarmHistoryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryParameter" type="tns:GetAlarmHistoryParameterType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryFilter" type="tns:GetAlarmHistoryFilterType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetAlarmHistoryParameterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetAlarmHistoryFilterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Types" type="tns:ArrayOfString3" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAlarmHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryResponseStatus" type="tns:SimpleResponseStatusType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryAlarmEvents" type="tns:ArrayOfAlarmEventType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SimpleResponseStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAlarmEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlarmEvent" type="tns:AlarmEventsType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetaModelType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfMetaModelType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Model" type="tns:MetaModelType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MetaModelType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" type="tns:MetadataCategoryType" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="version" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="MetadataCategoryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Property" type="tns:MetadataPropertyType" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="MetadataPropertyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHierarchicalInformationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHierarchicalInformationId" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHierarchicalInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHierarchicalInformationPath" type="tns:ArrayOfItemPathType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfItemPathType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContainerItem" type="tns:ItemPathType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemPathType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="order" type="xs:integer" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="GetHistoricalDataAggregationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationParameter" type="tns:GetHistoricalDataAggregationParameterType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationFilter" type="tns:GetHistoricalDataAggregationFilterType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetHistoricalDataAggregationParameterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetHistoricalDataAggregationFilterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AggregationGroup" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AggregationPeriods" type="tns:ArrayOfInteger" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AggregationType" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfInteger">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Period" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHistoricalDataAggregationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationResponseStatus" type="tns:HistoricalDataAggregationResponseStatusType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationRecords" type="tns:HistoricalDataAggregationRecordsType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="HistoricalDataAggregationResponseStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HistoricalDataAggregationRecordsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Unit" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="List" type="tns:ArrayOfAggregationRecordType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetaModelType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAggregationRecordType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AggregationRecord" type="tns:AggregationRecordType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AggregationRecordType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Period" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Unsubscribe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsubscribeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Renew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Expires" type="xs:duration" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RenewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Expires" type="xs:duration" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="NotificationId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="NotificationId" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ItemChangedEvents" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ItemChangedEvents">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SystemEvents" type="tns:ArrayOfSystemEventsType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ValueChangedEvents" type="tns:ArrayOfValueChangedEventType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="HierarchyChangedEvents" type="tns:ArrayOfHierarchyChangedEventType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AlarmEvents" type="tns:ArrayOfAlarmEventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSystemEventsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SystemEvent" type="tns:SystemEventsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SystemEventsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Priority" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SourceID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SourceName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Metadata" type="tns:ArrayOfMetaModelType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfValueChangedEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" type="tns:ValueChangedEventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueChangedEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfHierarchyChangedEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" type="tns:HierarchyChangedEventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HierarchyChangedEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSystemEventsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSystemEventsParameter" type="tns:GetEventsParameterType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSystemEventsFilter" type="tns:GetSystemEventsFilterType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="metadata" type="xs:boolean" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetEventsParameterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetSystemEventsFilterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Types" type="tns:ArrayOfString3" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Ids" type="tns:ArrayOfString2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSystemEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSystemEventsResponseStatus" type="tns:GetSystemEventsResponseStatusType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSystemEventsSystemEvents" type="tns:ArrayOfSystemEventsType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetSystemEventsResponseStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSystemEventTypesRequest">
+    <xs:complexType>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemEventTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetSystemEventTypesTypes" type="tns:ArrayOfString3" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnforceValuesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="UnforceValuesIds" type="tns:ArrayOfString2" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnforceValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="UnforceValuesResults" type="tns:ArrayOfResultType" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://www.schneider-electric.com/common/dataexchange/2011/05" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" targetNamespace="http://www.schneider-electric.com/common/dataexchange/2011/05" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.schneider-electric.com/common/dataexchange/2011/05/Imports">
+      <xsd:import schemaLocation="http://172.30.10.11/EWS/DataExchange.svc?xsd=xsd0" namespace="http://www.schneider-electric.com/common/dataexchange/2011/05" />
+      <xsd:import schemaLocation="http://172.30.10.11/EWS/DataExchange.svc?xsd=xsd1" namespace="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" />
+      <xsd:import schemaLocation="http://172.30.10.11/EWS/DataExchange.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWebServiceInformationRequest1">
+    <wsdl:part name="GetWebServiceInformationRequest" element="tns:GetWebServiceInformationRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetWebServiceInformationResponse1">
+    <wsdl:part name="GetWebServiceInformationResponse" element="tns:GetWebServiceInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetWebServiceInformation_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q1="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q1:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetWebServiceInformation_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q2="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q2:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetWebServiceInformation_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q3="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q3:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerItemsRequest1">
+    <wsdl:part name="GetContainerItemsRequest" element="tns:GetContainerItemsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetContainerItemsResponse1">
+    <wsdl:part name="GetContainerItemsResponse" element="tns:GetContainerItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetContainerItems_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q4="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q4:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetContainerItems_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q5="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q5:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetContainerItems_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q6="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q6:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetContainerItems_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q7="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q7:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsRequest1">
+    <wsdl:part name="GetItemsRequest" element="tns:GetItemsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsResponse1">
+    <wsdl:part name="GetItemsResponse" element="tns:GetItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetItems_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q8="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q8:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetItems_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q9="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q9:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetItems_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q10="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q10:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetItems_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q11="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q11:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="GetValuesRequest1">
+    <wsdl:part name="GetValuesRequest" element="tns:GetValuesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetValuesResponse1">
+    <wsdl:part name="GetValuesResponse" element="tns:GetValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetValues_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q12="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q12:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetValues_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q13="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q13:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetValues_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q14="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q14:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetValues_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q15="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q15:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="SetValuesRequest1">
+    <wsdl:part name="SetValuesRequest" element="tns:SetValuesRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetValuesResponse1">
+    <wsdl:part name="SetValuesResponse" element="tns:SetValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_SetValues_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q16="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q16:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_SetValues_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q17="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q17:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_SetValues_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q18="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q18:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_SetValues_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q19="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q19:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_SetValues_Fault_Missing_Value_List_FaultMessage">
+    <wsdl:part xmlns:q20="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q20:Fault_Missing_Value_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_SetValues_Fault_Unequal_Lists_FaultMessage">
+    <wsdl:part xmlns:q21="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q21:Fault_Unequal_Lists" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoryRequest1">
+    <wsdl:part name="GetHistoryRequest" element="tns:GetHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoryResponse1">
+    <wsdl:part name="GetHistoryResponse" element="tns:GetHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistory_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q22="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q22:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistory_Fault_Invalid_Reference_FaultMessage">
+    <wsdl:part xmlns:q23="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q23:Fault_Invalid_Reference" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistory_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q24="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q24:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistory_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q25="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q25:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistory_Fault_Invalid_Id_FaultMessage">
+    <wsdl:part xmlns:q26="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q26:Fault_Invalid_Id" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistory_Fault_Invalid_Time_FaultMessage">
+    <wsdl:part xmlns:q27="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q27:Fault_Invalid_Time" />
+  </wsdl:message>
+  <wsdl:message name="GetAlarmEventsRequest1">
+    <wsdl:part name="GetAlarmEventsRequest" element="tns:GetAlarmEventsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAlarmEventsResponse1">
+    <wsdl:part name="GetAlarmEventsResponse" element="tns:GetAlarmEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEvents_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q28="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q28:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEvents_Fault_Invalid_Reference_FaultMessage">
+    <wsdl:part xmlns:q29="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q29:Fault_Invalid_Reference" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEvents_Fault_Invalid_Priority_FaultMessage">
+    <wsdl:part xmlns:q30="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q30:Fault_Invalid_Priority" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEvents_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q31="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q31:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEvents_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q32="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q32:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEvents_Fault_Invalid_Type_FaultMessage">
+    <wsdl:part xmlns:q33="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q33:Fault_Invalid_Type" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdatedAlarmEventsRequest1">
+    <wsdl:part name="GetUpdatedAlarmEventsRequest" element="tns:GetUpdatedAlarmEventsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdatedAlarmEventsResponse1">
+    <wsdl:part name="GetUpdatedAlarmEventsResponse" element="tns:GetUpdatedAlarmEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q34="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q34:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Reference_FaultMessage">
+    <wsdl:part xmlns:q35="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q35:Fault_Invalid_Reference" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Priority_FaultMessage">
+    <wsdl:part xmlns:q36="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q36:Fault_Invalid_Priority" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q37="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q37:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q38="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q38:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Type_FaultMessage">
+    <wsdl:part xmlns:q39="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q39:Fault_Invalid_Type" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Time_FaultMessage">
+    <wsdl:part xmlns:q40="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q40:Fault_Invalid_Time" />
+  </wsdl:message>
+  <wsdl:message name="AcknowledgeAlarmEventsRequest1">
+    <wsdl:part name="AcknowledgeAlarmEventsRequest" element="tns:AcknowledgeAlarmEventsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AcknowledgeAlarmEventsResponse1">
+    <wsdl:part name="AcknowledgeAlarmEventsResponse" element="tns:AcknowledgeAlarmEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_AcknowledgeAlarmEvents_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q41="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q41:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_AcknowledgeAlarmEvents_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q42="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q42:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_AcknowledgeAlarmEvents_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q43="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q43:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_AcknowledgeAlarmEvents_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q44="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q44:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="GetAlarmEventTypesRequest1">
+    <wsdl:part name="GetAlarmEventTypesRequest" element="tns:GetAlarmEventTypesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAlarmEventTypesResponse1">
+    <wsdl:part name="GetAlarmEventTypesResponse" element="tns:GetAlarmEventTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEventTypes_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q45="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q45:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEventTypes_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q46="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q46:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmEventTypes_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q47="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q47:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="SubscribeRequest">
+    <wsdl:part name="Subscribe" element="tns:Subscribe" />
+  </wsdl:message>
+  <wsdl:message name="SubscribeResponse1">
+    <wsdl:part name="SubscribeResponse" element="tns:SubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q48="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q48:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q49="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q49:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q50="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q50:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q51="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q51:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Operation_Failed_FaultMessage">
+    <wsdl:part xmlns:q52="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q52:Fault_Operation_Failed" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Invalid_Time_FaultMessage">
+    <wsdl:part xmlns:q53="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q53:Fault_Invalid_Time" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q54="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q54:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Invalid_EventMode_FaultMessage">
+    <wsdl:part xmlns:q55="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q55:Fault_Invalid_EventMode" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Invalid_EventType_FaultMessage">
+    <wsdl:part xmlns:q56="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q56:Fault_Invalid_EventType" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Invalid_Priority_FaultMessage">
+    <wsdl:part xmlns:q57="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q57:Fault_Invalid_Priority" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Invalid_Type_FaultMessage">
+    <wsdl:part xmlns:q58="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q58:Fault_Invalid_Type" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Subscribe_Fault_Invalid_Alarmfilter_FaultMessage">
+    <wsdl:part xmlns:q59="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q59:Fault_Invalid_Alarmfilter" />
+  </wsdl:message>
+  <wsdl:message name="ForceValuesRequest1">
+    <wsdl:part name="ForceValuesRequest" element="tns:ForceValuesRequest" />
+  </wsdl:message>
+  <wsdl:message name="ForceValuesResponse1">
+    <wsdl:part name="ForceValuesResponse" element="tns:ForceValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q60="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q60:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q61="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q61:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q62="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q62:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q63="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q63:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_Missing_Valueitem_List_FaultMessage">
+    <wsdl:part xmlns:q64="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q64:Fault_Missing_Valueitem_List" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_Invalid_Value_FaultMessage">
+    <wsdl:part xmlns:q65="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q65:Fault_Invalid_Value" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_ForceValues_Fault_Invalid_Id_FaultMessage">
+    <wsdl:part xmlns:q66="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q66:Fault_Invalid_Id" />
+  </wsdl:message>
+  <wsdl:message name="GetEnumsRequest1">
+    <wsdl:part name="GetEnumsRequest" element="tns:GetEnumsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetEnumsResponse1">
+    <wsdl:part name="GetEnumsResponse" element="tns:GetEnumsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetEnums_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q67="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q67:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetEnums_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q68="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q68:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetEnums_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q69="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q69:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetEnums_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q70="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q70:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetEnums_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q71="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q71:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:message name="GetAlarmHistoryRequest1">
+    <wsdl:part name="GetAlarmHistoryRequest" element="tns:GetAlarmHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAlarmHistoryResponse1">
+    <wsdl:part name="GetAlarmHistoryResponse" element="tns:GetAlarmHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q72="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q72:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q73="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q73:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q74="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q74:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q75="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q75:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Invalid_Id_FaultMessage">
+    <wsdl:part xmlns:q76="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q76:Fault_Invalid_Id" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Invalid_Reference_FaultMessage">
+    <wsdl:part xmlns:q77="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q77:Fault_Invalid_Reference" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Invalid_Time_FaultMessage">
+    <wsdl:part xmlns:q78="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q78:Fault_Invalid_Time" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Invalid_Priority_FaultMessage">
+    <wsdl:part xmlns:q79="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q79:Fault_Invalid_Priority" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetAlarmHistory_Fault_Invalid_Type_FaultMessage">
+    <wsdl:part xmlns:q80="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q80:Fault_Invalid_Type" />
+  </wsdl:message>
+  <wsdl:message name="GetHierarchicalInformationRequest1">
+    <wsdl:part name="GetHierarchicalInformationRequest" element="tns:GetHierarchicalInformationRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetHierarchicalInformationResponse1">
+    <wsdl:part name="GetHierarchicalInformationResponse" element="tns:GetHierarchicalInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHierarchicalInformation_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q81="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q81:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHierarchicalInformation_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q82="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q82:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHierarchicalInformation_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q83="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q83:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHierarchicalInformation_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q84="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q84:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHierarchicalInformation_Fault_Invalid_Id_FaultMessage">
+    <wsdl:part xmlns:q85="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q85:Fault_Invalid_Id" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalDataAggregationRequest1">
+    <wsdl:part name="GetHistoricalDataAggregationRequest" element="tns:GetHistoricalDataAggregationRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalDataAggregationResponse1">
+    <wsdl:part name="GetHistoricalDataAggregationResponse" element="tns:GetHistoricalDataAggregationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q86="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q86:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q87="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q87:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q88="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q88:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q89="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q89:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Id_FaultMessage">
+    <wsdl:part xmlns:q90="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q90:Fault_Invalid_Id" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Reference_FaultMessage">
+    <wsdl:part xmlns:q91="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q91:Fault_Invalid_Reference" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Time_FaultMessage">
+    <wsdl:part xmlns:q92="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q92:Fault_Invalid_Time" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Group_FaultMessage">
+    <wsdl:part xmlns:q93="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q93:Fault_Invalid_Group" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Type_FaultMessage">
+    <wsdl:part xmlns:q94="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q94:Fault_Invalid_Type" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeRequest">
+    <wsdl:part name="Unsubscribe" element="tns:Unsubscribe" />
+  </wsdl:message>
+  <wsdl:message name="UnsubscribeResponse1">
+    <wsdl:part name="UnsubscribeResponse" element="tns:UnsubscribeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q95="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q95:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q96="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q96:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q97="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q97:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q98="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q98:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_Operation_Failed_FaultMessage">
+    <wsdl:part xmlns:q99="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q99:Fault_Operation_Failed" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_Invalid_Subscription_FaultMessage">
+    <wsdl:part xmlns:q100="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q100:Fault_Invalid_Subscription" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Unsubscribe_Fault_Subscription_Terminated_FaultMessage">
+    <wsdl:part xmlns:q101="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q101:Fault_Subscription_Terminated" />
+  </wsdl:message>
+  <wsdl:message name="RenewRequest">
+    <wsdl:part name="Renew" element="tns:Renew" />
+  </wsdl:message>
+  <wsdl:message name="RenewResponse1">
+    <wsdl:part name="RenewResponse" element="tns:RenewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q102="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q102:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q103="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q103:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q104="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q104:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q105="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q105:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_Operation_Failed_FaultMessage">
+    <wsdl:part xmlns:q106="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q106:Fault_Operation_Failed" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_Invalid_Time_FaultMessage">
+    <wsdl:part xmlns:q107="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q107:Fault_Invalid_Time" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_Renew_Fault_Invalid_Subscription_FaultMessage">
+    <wsdl:part xmlns:q108="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q108:Fault_Invalid_Subscription" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationRequest1">
+    <wsdl:part name="GetNotificationRequest" element="tns:GetNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationResponse1">
+    <wsdl:part name="GetNotificationResponse" element="tns:GetNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetNotification_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q109="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q109:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetNotification_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q110="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q110:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetNotification_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q111="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q111:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetNotification_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q112="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q112:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetNotification_Fault_Invalid_Subscription_FaultMessage">
+    <wsdl:part xmlns:q113="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q113:Fault_Invalid_Subscription" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetNotification_Fault_Invalid_Notification_Id_FaultMessage">
+    <wsdl:part xmlns:q114="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q114:Fault_Invalid_Notification_Id" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsRequest1">
+    <wsdl:part name="GetSystemEventsRequest" element="tns:GetSystemEventsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventsResponse1">
+    <wsdl:part name="GetSystemEventsResponse" element="tns:GetSystemEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q115="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q115:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q116="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q116:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q117="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q117:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q118="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q118:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_Invalid_Reference_FaultMessage">
+    <wsdl:part xmlns:q119="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q119:Fault_Invalid_Reference" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_Invalid_Priority_FaultMessage">
+    <wsdl:part xmlns:q120="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q120:Fault_Invalid_Priority" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEvents_Fault_Invalid_Type_FaultMessage">
+    <wsdl:part xmlns:q121="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q121:Fault_Invalid_Type" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventTypesRequest1">
+    <wsdl:part name="GetSystemEventTypesRequest" element="tns:GetSystemEventTypesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemEventTypesResponse1">
+    <wsdl:part name="GetSystemEventTypesResponse" element="tns:GetSystemEventTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEventTypes_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q122="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q122:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEventTypes_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q123="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q123:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEventTypes_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q124="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q124:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_GetSystemEventTypes_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q125="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q125:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="UnforceValuesRequest1">
+    <wsdl:part name="UnforceValuesRequest" element="tns:UnforceValuesRequest" />
+  </wsdl:message>
+  <wsdl:message name="UnforceValuesResponse1">
+    <wsdl:part name="UnforceValuesResponse" element="tns:UnforceValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_UnforceValues_Fault_Operation_Not_Supported_FaultMessage">
+    <wsdl:part xmlns:q126="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q126:Fault_Operation_Not_Supported" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_UnforceValues_Fault_Permission_Denied_FaultMessage">
+    <wsdl:part xmlns:q127="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q127:Fault_Permission_Denied" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_UnforceValues_Fault_TimeOut_FaultMessage">
+    <wsdl:part xmlns:q128="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q128:Fault_TimeOut" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_UnforceValues_Fault_InvalidRequest_FaultMessage">
+    <wsdl:part xmlns:q129="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q129:Fault_InvalidRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataExchange_UnforceValues_Fault_Missing_Id_List_FaultMessage">
+    <wsdl:part xmlns:q130="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" name="detail" element="q130:Fault_Missing_Id_List" />
+  </wsdl:message>
+  <wsdl:portType name="IDataExchange">
+    <wsdl:operation name="GetWebServiceInformation">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetWebServiceInformationIn" name="GetWebServiceInformationRequest1" message="tns:GetWebServiceInformationRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetWebServiceInformationOut" name="GetWebServiceInformationResponse1" message="tns:GetWebServiceInformationResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetWebServiceInformationFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetWebServiceInformation_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetWebServiceInformationFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetWebServiceInformation_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetWebServiceInformationFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetWebServiceInformation_Fault_TimeOut_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContainerItems">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsIn" name="GetContainerItemsRequest1" message="tns:GetContainerItemsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsOut" name="GetContainerItemsResponse1" message="tns:GetContainerItemsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetContainerItems_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_GetContainerItems_Fault_Missing_Id_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetContainerItems_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetContainerItems_Fault_TimeOut_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsIn" name="GetItemsRequest1" message="tns:GetItemsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsOut" name="GetItemsResponse1" message="tns:GetItemsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetItems_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_GetItems_Fault_Missing_Id_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetItems_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetItems_Fault_TimeOut_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValues">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesIn" name="GetValuesRequest1" message="tns:GetValuesRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesOut" name="GetValuesResponse1" message="tns:GetValuesResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetValues_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_GetValues_Fault_Missing_Id_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetValues_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetValues_Fault_TimeOut_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetValues">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesIn" name="SetValuesRequest1" message="tns:SetValuesRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesOut" name="SetValuesResponse1" message="tns:SetValuesResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_SetValues_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_SetValues_Fault_Missing_Id_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_SetValues_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_SetValues_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesFault_Missing_Value_List" name="Fault_Missing_Value_List" message="tns:IDataExchange_SetValues_Fault_Missing_Value_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesFault_Unequal_Lists" name="Fault_Unequal_Lists" message="tns:IDataExchange_SetValues_Fault_Unequal_Lists_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryIn" name="GetHistoryRequest1" message="tns:GetHistoryRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryOut" name="GetHistoryResponse1" message="tns:GetHistoryResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetHistory_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryFault_Invalid_Reference" name="Fault_Invalid_Reference" message="tns:IDataExchange_GetHistory_Fault_Invalid_Reference_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetHistory_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetHistory_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryFault_Invalid_Id" name="Fault_Invalid_Id" message="tns:IDataExchange_GetHistory_Fault_Invalid_Id_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryFault_Invalid_Time" name="Fault_Invalid_Time" message="tns:IDataExchange_GetHistory_Fault_Invalid_Time_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmEvents">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsIn" name="GetAlarmEventsRequest1" message="tns:GetAlarmEventsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsOut" name="GetAlarmEventsResponse1" message="tns:GetAlarmEventsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetAlarmEvents_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsFault_Invalid_Reference" name="Fault_Invalid_Reference" message="tns:IDataExchange_GetAlarmEvents_Fault_Invalid_Reference_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsFault_Invalid_Priority" name="Fault_Invalid_Priority" message="tns:IDataExchange_GetAlarmEvents_Fault_Invalid_Priority_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetAlarmEvents_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetAlarmEvents_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsFault_Invalid_Type" name="Fault_Invalid_Type" message="tns:IDataExchange_GetAlarmEvents_Fault_Invalid_Type_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdatedAlarmEvents">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsIn" name="GetUpdatedAlarmEventsRequest1" message="tns:GetUpdatedAlarmEventsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsOut" name="GetUpdatedAlarmEventsResponse1" message="tns:GetUpdatedAlarmEventsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_Invalid_Reference" name="Fault_Invalid_Reference" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Reference_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_Invalid_Priority" name="Fault_Invalid_Priority" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Priority_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_Invalid_Type" name="Fault_Invalid_Type" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Type_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsFault_Invalid_Time" name="Fault_Invalid_Time" message="tns:IDataExchange_GetUpdatedAlarmEvents_Fault_Invalid_Time_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeAlarmEvents">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsIn" name="AcknowledgeAlarmEventsRequest1" message="tns:AcknowledgeAlarmEventsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsOut" name="AcknowledgeAlarmEventsResponse1" message="tns:AcknowledgeAlarmEventsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_AcknowledgeAlarmEvents_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_AcknowledgeAlarmEvents_Fault_Missing_Id_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_AcknowledgeAlarmEvents_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_AcknowledgeAlarmEvents_Fault_TimeOut_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmEventTypes">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventTypesIn" name="GetAlarmEventTypesRequest1" message="tns:GetAlarmEventTypesRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventTypesOut" name="GetAlarmEventTypesResponse1" message="tns:GetAlarmEventTypesResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventTypesFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetAlarmEventTypes_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventTypesFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetAlarmEventTypes_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventTypesFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetAlarmEventTypes_Fault_TimeOut_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Subscribe">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeIn" name="SubscribeRequest" message="tns:SubscribeRequest" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeOut" name="SubscribeResponse1" message="tns:SubscribeResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_Subscribe_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_Subscribe_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_Subscribe_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_Subscribe_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Operation_Failed" name="Fault_Operation_Failed" message="tns:IDataExchange_Subscribe_Fault_Operation_Failed_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Invalid_Time" name="Fault_Invalid_Time" message="tns:IDataExchange_Subscribe_Fault_Invalid_Time_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_Subscribe_Fault_Missing_Id_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Invalid_EventMode" name="Fault_Invalid_EventMode" message="tns:IDataExchange_Subscribe_Fault_Invalid_EventMode_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Invalid_EventType" name="Fault_Invalid_EventType" message="tns:IDataExchange_Subscribe_Fault_Invalid_EventType_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Invalid_Priority" name="Fault_Invalid_Priority" message="tns:IDataExchange_Subscribe_Fault_Invalid_Priority_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Invalid_Type" name="Fault_Invalid_Type" message="tns:IDataExchange_Subscribe_Fault_Invalid_Type_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeFault_Invalid_Alarmfilter" name="Fault_Invalid_Alarmfilter" message="tns:IDataExchange_Subscribe_Fault_Invalid_Alarmfilter_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForceValues">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesIn" name="ForceValuesRequest1" message="tns:ForceValuesRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesOut" name="ForceValuesResponse1" message="tns:ForceValuesResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_ForceValues_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_ForceValues_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_ForceValues_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_ForceValues_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_Valueitem_List" name="Fault_Missing_Valueitem_List" message="tns:IDataExchange_ForceValues_Fault_Missing_Valueitem_List_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_Invalid_Value" name="Fault_Invalid_Value" message="tns:IDataExchange_ForceValues_Fault_Invalid_Value_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesFault_Invalid_Id" name="Fault_Invalid_Id" message="tns:IDataExchange_ForceValues_Fault_Invalid_Id_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnums">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsIn" name="GetEnumsRequest1" message="tns:GetEnumsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsOut" name="GetEnumsResponse1" message="tns:GetEnumsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetEnums_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetEnums_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetEnums_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetEnums_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_GetEnums_Fault_Missing_Id_List_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmHistory">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryIn" name="GetAlarmHistoryRequest1" message="tns:GetAlarmHistoryRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryOut" name="GetAlarmHistoryResponse1" message="tns:GetAlarmHistoryResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetAlarmHistory_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetAlarmHistory_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetAlarmHistory_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetAlarmHistory_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Invalid_Id" name="Fault_Invalid_Id" message="tns:IDataExchange_GetAlarmHistory_Fault_Invalid_Id_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Invalid_Reference" name="Fault_Invalid_Reference" message="tns:IDataExchange_GetAlarmHistory_Fault_Invalid_Reference_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Invalid_Time" name="Fault_Invalid_Time" message="tns:IDataExchange_GetAlarmHistory_Fault_Invalid_Time_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Invalid_Priority" name="Fault_Invalid_Priority" message="tns:IDataExchange_GetAlarmHistory_Fault_Invalid_Priority_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryFault_Invalid_Type" name="Fault_Invalid_Type" message="tns:IDataExchange_GetAlarmHistory_Fault_Invalid_Type_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchicalInformation">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationIn" name="GetHierarchicalInformationRequest1" message="tns:GetHierarchicalInformationRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationOut" name="GetHierarchicalInformationResponse1" message="tns:GetHierarchicalInformationResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetHierarchicalInformation_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetHierarchicalInformation_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetHierarchicalInformation_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetHierarchicalInformation_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationFault_Invalid_Id" name="Fault_Invalid_Id" message="tns:IDataExchange_GetHierarchicalInformation_Fault_Invalid_Id_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalDataAggregation">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationIn" name="GetHistoricalDataAggregationRequest1" message="tns:GetHistoricalDataAggregationRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationOut" name="GetHistoricalDataAggregationResponse1" message="tns:GetHistoricalDataAggregationResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_Invalid_Id" name="Fault_Invalid_Id" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Id_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_Invalid_Reference" name="Fault_Invalid_Reference" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Reference_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_Invalid_Time" name="Fault_Invalid_Time" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Time_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_InvalidGroup" name="Fault_Invalid_Group" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Group_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationFault_Invalid_Type" name="Fault_Invalid_Type" message="tns:IDataExchange_GetHistoricalDataAggregation_Fault_Invalid_Type_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeIn" name="UnsubscribeRequest" message="tns:UnsubscribeRequest" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeOut" name="UnsubscribeResponse1" message="tns:UnsubscribeResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_Unsubscribe_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_Unsubscribe_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeStatusFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_Unsubscribe_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_Unsubscribe_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeFault_Operation_Failed" name="Fault_Operation_Failed" message="tns:IDataExchange_Unsubscribe_Fault_Operation_Failed_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeFault_Invalid_Subscription" name="Fault_Invalid_Subscription" message="tns:IDataExchange_Unsubscribe_Fault_Invalid_Subscription_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeFault_Subscription_Terminated" name="Fault_Subscription_Terminated" message="tns:IDataExchange_Unsubscribe_Fault_Subscription_Terminated_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Renew">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewIn" name="RenewRequest" message="tns:RenewRequest" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewOut" name="RenewResponse1" message="tns:RenewResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_Renew_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_Renew_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_Renew_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_Renew_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_Operation_Failed" name="Fault_Operation_Failed" message="tns:IDataExchange_Renew_Fault_Operation_Failed_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_Invalid_Time" name="Fault_Invalid_Time" message="tns:IDataExchange_Renew_Fault_Invalid_Time_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewFault_Invalid_Subscription" name="Fault_Invalid_Subscription" message="tns:IDataExchange_Renew_Fault_Invalid_Subscription_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotification">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationIn" name="GetNotificationRequest1" message="tns:GetNotificationRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationOut" name="GetNotificationResponse1" message="tns:GetNotificationResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetNotification_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetNotification_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetNotification_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetNotification_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationFault_Invalid_Subscription" name="Fault_Invalid_Subscription" message="tns:IDataExchange_GetNotification_Fault_Invalid_Subscription_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationFault_Invalid_Notification_Id" name="Fault_Invalid_Notification_Id" message="tns:IDataExchange_GetNotification_Fault_Invalid_Notification_Id_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsIn" name="GetSystemEventsRequest1" message="tns:GetSystemEventsRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsOut" name="GetSystemEventsResponse1" message="tns:GetSystemEventsResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetSystemEvents_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetSystemEvents_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetSystemEvents_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetSystemEvents_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_Invalid_Reference" name="Fault_Invalid_Reference" message="tns:IDataExchange_GetSystemEvents_Fault_Invalid_Reference_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_Invalid_Priority" name="Fault_Invalid_Priority" message="tns:IDataExchange_GetSystemEvents_Fault_Invalid_Priority_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsFault_Invalid_Type" name="Fault_Invalid_Type" message="tns:IDataExchange_GetSystemEvents_Fault_Invalid_Type_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEventTypes">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesIn" name="GetSystemEventTypesRequest1" message="tns:GetSystemEventTypesRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesOut" name="GetSystemEventTypesResponse1" message="tns:GetSystemEventTypesResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_GetSystemEventTypes_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_GetSystemEventTypes_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_GetSystemEventTypes_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_GetSystemEventTypes_Fault_InvalidRequest_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnforceValues">
+      <wsdl:input wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesIn" name="UnforceValuesRequest1" message="tns:UnforceValuesRequest1" />
+      <wsdl:output wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesOut" name="UnforceValuesResponse1" message="tns:UnforceValuesResponse1" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesFault_Operation_Not_Supported" name="Fault_Operation_Not_Supported" message="tns:IDataExchange_UnforceValues_Fault_Operation_Not_Supported_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesFault_Permission_Denied" name="Fault_Permission_Denied" message="tns:IDataExchange_UnforceValues_Fault_Permission_Denied_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesFault_TimeOut" name="Fault_TimeOut" message="tns:IDataExchange_UnforceValues_Fault_TimeOut_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesFault_InvalidRequest" name="Fault_InvalidRequest" message="tns:IDataExchange_UnforceValues_Fault_InvalidRequest_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesFault_Missing_Id_List" name="Fault_Missing_Id_List" message="tns:IDataExchange_UnforceValues_Fault_Missing_Id_List_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IDataExchange" type="tns:IDataExchange">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWebServiceInformation">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetWebServiceInformationIn" style="document" />
+      <wsdl:input name="GetWebServiceInformationRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetWebServiceInformationResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetContainerItems">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetContainerItemsIn" style="document" />
+      <wsdl:input name="GetContainerItemsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetContainerItemsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetItemsIn" style="document" />
+      <wsdl:input name="GetItemsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetItemsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetValues">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetValuesIn" style="document" />
+      <wsdl:input name="GetValuesRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetValuesResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetValues">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/SetValuesIn" style="document" />
+      <wsdl:input name="SetValuesRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetValuesResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Value_List">
+        <soap12:fault use="literal" name="Fault_Missing_Value_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Unequal_Lists">
+        <soap12:fault use="literal" name="Fault_Unequal_Lists" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistory">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoryIn" style="document" />
+      <wsdl:input name="GetHistoryRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetHistoryResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Reference">
+        <soap12:fault use="literal" name="Fault_Invalid_Reference" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Id">
+        <soap12:fault use="literal" name="Fault_Invalid_Id" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Time">
+        <soap12:fault use="literal" name="Fault_Invalid_Time" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmEvents">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventsIn" style="document" />
+      <wsdl:input name="GetAlarmEventsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAlarmEventsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Reference">
+        <soap12:fault use="literal" name="Fault_Invalid_Reference" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Priority">
+        <soap12:fault use="literal" name="Fault_Invalid_Priority" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Type">
+        <soap12:fault use="literal" name="Fault_Invalid_Type" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdatedAlarmEvents">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetUpdatedAlarmEventsIn" style="document" />
+      <wsdl:input name="GetUpdatedAlarmEventsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetUpdatedAlarmEventsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Reference">
+        <soap12:fault use="literal" name="Fault_Invalid_Reference" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Priority">
+        <soap12:fault use="literal" name="Fault_Invalid_Priority" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Type">
+        <soap12:fault use="literal" name="Fault_Invalid_Type" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Time">
+        <soap12:fault use="literal" name="Fault_Invalid_Time" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeAlarmEvents">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/AcknowledgeAlarmEventsIn" style="document" />
+      <wsdl:input name="AcknowledgeAlarmEventsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AcknowledgeAlarmEventsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmEventTypes">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmEventTypesIn" style="document" />
+      <wsdl:input name="GetAlarmEventTypesRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAlarmEventTypesResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Subscribe">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/SubscribeIn" style="document" />
+      <wsdl:input name="SubscribeRequest">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SubscribeResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Operation_Failed">
+        <soap12:fault use="literal" name="Fault_Operation_Failed" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Time">
+        <soap12:fault use="literal" name="Fault_Invalid_Time" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_EventMode">
+        <soap12:fault use="literal" name="Fault_Invalid_EventMode" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_EventType">
+        <soap12:fault use="literal" name="Fault_Invalid_EventType" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Priority">
+        <soap12:fault use="literal" name="Fault_Invalid_Priority" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Type">
+        <soap12:fault use="literal" name="Fault_Invalid_Type" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Alarmfilter">
+        <soap12:fault use="literal" name="Fault_Invalid_Alarmfilter" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ForceValues">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/ForceValuesIn" style="document" />
+      <wsdl:input name="ForceValuesRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ForceValuesResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Valueitem_List">
+        <soap12:fault use="literal" name="Fault_Missing_Valueitem_List" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Value">
+        <soap12:fault use="literal" name="Fault_Invalid_Value" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Id">
+        <soap12:fault use="literal" name="Fault_Invalid_Id" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnums">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetEnumsIn" style="document" />
+      <wsdl:input name="GetEnumsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetEnumsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmHistory">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetAlarmHistoryIn" style="document" />
+      <wsdl:input name="GetAlarmHistoryRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAlarmHistoryResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Id">
+        <soap12:fault use="literal" name="Fault_Invalid_Id" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Reference">
+        <soap12:fault use="literal" name="Fault_Invalid_Reference" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Time">
+        <soap12:fault use="literal" name="Fault_Invalid_Time" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Priority">
+        <soap12:fault use="literal" name="Fault_Invalid_Priority" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Type">
+        <soap12:fault use="literal" name="Fault_Invalid_Type" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchicalInformation">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHierarchicalInformationIn" style="document" />
+      <wsdl:input name="GetHierarchicalInformationRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetHierarchicalInformationResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Id">
+        <soap12:fault use="literal" name="Fault_Invalid_Id" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalDataAggregation">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetHistoricalDataAggregationIn" style="document" />
+      <wsdl:input name="GetHistoricalDataAggregationRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetHistoricalDataAggregationResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Id">
+        <soap12:fault use="literal" name="Fault_Invalid_Id" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Reference">
+        <soap12:fault use="literal" name="Fault_Invalid_Reference" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Time">
+        <soap12:fault use="literal" name="Fault_Invalid_Time" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Group">
+        <soap12:fault use="literal" name="Fault_Invalid_Group" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Type">
+        <soap12:fault use="literal" name="Fault_Invalid_Type" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Unsubscribe">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/UnsubscribeIn" style="document" />
+      <wsdl:input name="UnsubscribeRequest">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UnsubscribeResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Operation_Failed">
+        <soap12:fault use="literal" name="Fault_Operation_Failed" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Subscription">
+        <soap12:fault use="literal" name="Fault_Invalid_Subscription" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Subscription_Terminated">
+        <soap12:fault use="literal" name="Fault_Subscription_Terminated" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Renew">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/RenewIn" style="document" />
+      <wsdl:input name="RenewRequest">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RenewResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Operation_Failed">
+        <soap12:fault use="literal" name="Fault_Operation_Failed" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Time">
+        <soap12:fault use="literal" name="Fault_Invalid_Time" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Subscription">
+        <soap12:fault use="literal" name="Fault_Invalid_Subscription" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotification">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetNotificationIn" style="document" />
+      <wsdl:input name="GetNotificationRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetNotificationResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Subscription">
+        <soap12:fault use="literal" name="Fault_Invalid_Subscription" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Notification_Id">
+        <soap12:fault use="literal" name="Fault_Invalid_Notification_Id" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEvents">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventsIn" style="document" />
+      <wsdl:input name="GetSystemEventsRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetSystemEventsResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Reference">
+        <soap12:fault use="literal" name="Fault_Invalid_Reference" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Priority">
+        <soap12:fault use="literal" name="Fault_Invalid_Priority" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Invalid_Type">
+        <soap12:fault use="literal" name="Fault_Invalid_Type" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemEventTypes">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/GetSystemEventTypesIn" style="document" />
+      <wsdl:input name="GetSystemEventTypesRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetSystemEventTypesResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnforceValues">
+      <soap12:operation soapAction="http://www.schneider-electric.com/common/dataexchange/2011/05/UnforceValuesIn" style="document" />
+      <wsdl:input name="UnforceValuesRequest1">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UnforceValuesResponse1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Fault_Operation_Not_Supported">
+        <soap12:fault use="literal" name="Fault_Operation_Not_Supported" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Permission_Denied">
+        <soap12:fault use="literal" name="Fault_Permission_Denied" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_TimeOut">
+        <soap12:fault use="literal" name="Fault_TimeOut" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_InvalidRequest">
+        <soap12:fault use="literal" name="Fault_InvalidRequest" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="Fault_Missing_Id_List">
+        <soap12:fault use="literal" name="Fault_Missing_Id_List" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

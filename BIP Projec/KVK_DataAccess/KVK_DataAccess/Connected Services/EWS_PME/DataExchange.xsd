@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" elementFormDefault="qualified" targetNamespace="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Fault_Operation_Not_Supported" type="xs:string" />
+  <xs:element name="Fault_Permission_Denied" type="xs:string" />
+  <xs:element name="Fault_TimeOut" type="xs:string" />
+  <xs:element name="Fault_Missing_Id_List" type="xs:string" />
+  <xs:element name="Fault_Missing_Value_List" type="xs:string" />
+  <xs:element name="Fault_Unequal_Lists" type="xs:string" />
+  <xs:element name="Fault_Invalid_Reference" type="xs:string" />
+  <xs:element name="Fault_Invalid_Id" type="xs:string" />
+  <xs:element name="Fault_Invalid_Time" type="xs:string" />
+  <xs:element name="Fault_Invalid_Priority" type="xs:string" />
+  <xs:element name="Fault_Invalid_Type" type="xs:string" />
+  <xs:element name="Fault_InvalidRequest" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Operation_Failed" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_EventMode" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_EventType" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_Alarmfilter" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Missing_Valueitem_List" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_Value" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_Group" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_Subscription" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Subscription_Terminated" nillable="true" type="xs:string" />
+  <xs:element name="Fault_Invalid_Notification_Id" nillable="true" type="xs:string" />
+</xs:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="db808694-d58a-4bc4-984c-5ba07d0da7d4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.30.10.11/EWS/DataExchange.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataExchange.xsd" MetadataType="Schema" ID="3c6edece-c9cb-4f20-844c-0e08daba5ee2" SourceId="1" SourceUrl="http://172.30.10.11/EWS/DataExchange.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataExchange1.xsd" MetadataType="Schema" ID="71a5e920-cb89-4f42-a78c-b860bdaee54d" SourceId="1" SourceUrl="http://172.30.10.11/EWS/DataExchange.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataExchange.wsdl" MetadataType="Wsdl" ID="8c7276bf-35e8-46db-9854-8fd8d6903296" SourceId="1" SourceUrl="http://172.30.10.11/EWS/DataExchange.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DataExchange2.xsd" MetadataType="Schema" ID="68638d1e-9c66-43c3-b467-501b821fcd22" SourceId="1" SourceUrl="http://172.30.10.11/EWS/DataExchange.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataExchange1.wsdl" MetadataType="Wsdl" ID="c23354c3-0aff-4b7b-82b8-f8bea592a720" SourceId="1" SourceUrl="http://172.30.10.11/EWS/DataExchange.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

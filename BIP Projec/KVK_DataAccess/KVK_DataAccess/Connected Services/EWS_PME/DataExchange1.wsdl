@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://www.schneider-electric.com/common/dataexchange/2011/05" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="DataExchange" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.schneider-electric.com/common/dataexchange/2011/05" location="http://172.30.10.11/EWS/DataExchange.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.schneider-electric.com/common/dataexchange/2011/05">
+      <xsd:element name="GetWebServiceInformationRequest">
+        <xsd:complexType>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetWebServiceInformationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetWebServiceInformationVersion">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" name="MajorVersion" type="xsd:integer" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="MinorVersion" type="xsd:string" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="UsedNameSpace" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetWebServiceInformationSupportedOperations" type="i0:ArrayOfString" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetWebServiceInformationSupportedProfiles" type="i0:ArrayOfString1" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="SystemInfo" type="i0:GetWebServiceInformationSystem" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfString">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Operation" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfString1">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Profiles" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetWebServiceInformationSystem">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Version" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetContainerItemsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetContainerItemsIds" type="i0:ArrayOfString2" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="GetContainerItemsParameter" nillable="true">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfString2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Id" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetContainerItemsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetContainerItemsItems" type="i0:ArrayOfContainerItemType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetContainerItemsErrorResults" type="i0:ArrayOfErrorResultType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetContainerItemsStatus" type="i0:GetContainerItemsResponseStatusType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfContainerItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ContainerItem" type="i0:ContainerItemType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContainerItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Items">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="1" name="ContainerItems" type="i0:ArrayOfContainerItemSimpleType" />
+                <xsd:element minOccurs="0" maxOccurs="1" name="ValueItems" type="i0:ArrayOfValueItemTypeBase" />
+                <xsd:element minOccurs="0" maxOccurs="1" name="HistoryItems" type="i0:ArrayOfHistoryItemType" />
+                <xsd:element minOccurs="0" maxOccurs="1" name="AlarmItems" type="i0:ArrayOfAlarmItemType" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:Metadata_12" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfContainerItemSimpleType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ContainerItem" type="i0:ContainerItemSimpleType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContainerItemSimpleType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfValueItemTypeBase">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="i0:ValueItemTypeBase" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ValueItemTypeBase">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Unit" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Writeable" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfHistoryItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="HistoryItem" type="i0:HistoryItemType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HistoryItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Unit" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:Metadata_12" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Metadata_12" />
+      <xsd:complexType name="ArrayOfAlarmItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AlarmItem" type="i0:AlarmItemType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AlarmItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:Metadata_12" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfErrorResultType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrorResult" type="i0:ErrorResultType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ErrorResultType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Message" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetContainerItemsResponseStatusType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetItemsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetItemsIds" type="i0:ArrayOfString2" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetItemsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetItemsItems" type="i0:ArrayOfItemType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetItemsErrorResults" type="i0:ArrayOfErrorResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ValueItems" type="i0:ArrayOfValueItemType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="HistoryItems" type="i0:ArrayOfHistoryItemType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AlarmItems" type="i0:ArrayOfAlarmItemType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfValueItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="i0:ValueItemType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ValueItemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Description" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Unit" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:Metadata_12" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Writeable" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetValuesRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetValuesIds" type="i0:ArrayOfString2" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetValuesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetValuesItems" type="i0:ArrayOfValueTypeStateful" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetValuesErrorResults" type="i0:ArrayOfErrorResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfValueTypeStateful">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="i0:ValueTypeStateful" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ValueTypeStateful">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SetValuesRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SetValuesItems" type="i0:ArrayOfValueTypeStateless" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfValueTypeStateless">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ValueItem" type="i0:ValueTypeStateless" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ValueTypeStateless">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SetValuesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SetValuesResults" type="i0:ArrayOfResultType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfResultType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Result" type="i0:ResultType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResultType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="Success" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Message" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetHistoryRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoryParameter">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="1" name="Id" nillable="true" type="xsd:string" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoryFilter">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xsd:dateTime" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xsd:dateTime" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetHistoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoryResponseStatus" type="i0:HistoryResponseStatusType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoryHistoryRecords" type="i0:HistoryRecordsType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="HistoryResponseStatusType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeTo" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HistoryRecordsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Unit" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="List" type="i0:ArrayOfHistoryRecordType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:Metadata_12" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfHistoryRecordType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="HistoryRecord" type="i0:HistoryRecordType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HistoryRecordType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:integer" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetAlarmEventsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsParameter">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsFilter">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xsd:integer" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xsd:integer" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="Types" type="i0:ArrayOfString3" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfString3">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Type" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetAlarmEventsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsResponseStatus" type="i0:AlarmResponseStatusType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmEventsAlarmEvents" nillable="true" type="i0:ArrayOfAlarmEventsType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="AlarmResponseStatusType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="LastUpdate" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="NeedsRefresh" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfAlarmEventsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AlarmEvent" type="i0:AlarmEventsType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AlarmEventsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SourceID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SourceName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Acknowledgeable" type="xsd:integer" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeStampOccurrence" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeStampTransition" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Priority" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Message" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:Metadata_12" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetUpdatedAlarmEventsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsParameter">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="1" name="LastUpdate" nillable="true" type="xsd:string" />
+                  <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataRef" nillable="true" type="xsd:string" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsFilter">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xsd:integer" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xsd:integer" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="Types" type="i0:ArrayOfString3" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetUpdatedAlarmEventsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsResponseStatus" type="i0:AlarmResponseStatusType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetUpdatedAlarmEventsAlarmEvents" type="i0:ArrayOfAlarmEventsType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AcknowledgeAlarmEventsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="AcknowledgeAlarmEventsIds" type="i0:ArrayOfString2" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AcknowledgeAlarmEventsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="AcknowledgeAlarmEventsResults" type="i0:ArrayOfResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetAlarmEventTypesRequest">
+        <xsd:complexType>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetAlarmEventTypesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmEventTypesTypes" type="i0:ArrayOfString3" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Subscribe">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="Delivery" type="i0:DeliveryType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Expires" type="xsd:duration" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Filter" type="i0:SubscribeFilterType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" />
+          <xsd:attribute name="Mode" type="xsd:integer" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="DeliveryType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="NotifyTo" type="i0:AddressType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AddressType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SubscribeFilterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="EventType" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Ids" type="i0:ArrayOfEventIdType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EventFilter" type="i0:GetEventsFilterType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="KeepAliveCycleTime" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfEventIdType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Id" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute default="0" name="eventMode" type="xsd:integer" />
+      </xsd:complexType>
+      <xsd:complexType name="GetEventsFilterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Types" type="i0:ArrayOfString3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SubscribeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionManager" type="i0:SubscriptionManagerType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Expires" type="xsd:duration" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Results" type="i0:ArrayOfResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="SubscriptionManagerType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Address" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ForceValuesRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="ForceValuesItems" type="i0:ArrayOfValueTypeStateless" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ForceValuesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="ForceValuesResults" type="i0:ArrayOfResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetEnumsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetEnumIds" type="i0:ArrayOfString2" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetEnumsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetEnumsEnums" type="i0:ArrayOfEnumsType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetEnumsErrorResults" type="i0:ArrayOfErrorResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfEnumsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Enum" type="i0:EnumsType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EnumsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="EnumValues" type="i0:ArrayOfEnumType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfEnumType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EnumValue" type="i0:EnumType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EnumType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Text" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetAlarmHistoryRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryParameter" type="i0:GetAlarmHistoryParameterType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryFilter" type="i0:GetAlarmHistoryFilterType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GetAlarmHistoryParameterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetAlarmHistoryFilterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Types" type="i0:ArrayOfString3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetAlarmHistoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryResponseStatus" type="i0:SimpleResponseStatusType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetAlarmHistoryAlarmEvents" type="i0:ArrayOfAlarmEventType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="SimpleResponseStatusType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfAlarmEventType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AlarmEvent" type="i0:AlarmEventsType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:ArrayOfMetaModelType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfMetaModelType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Model" type="i0:MetaModelType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MetaModelType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Category" type="i0:MetadataCategoryType" />
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" />
+        <xsd:attribute name="version" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MetadataCategoryType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Property" type="i0:MetadataPropertyType" />
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="MetadataPropertyType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetHierarchicalInformationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHierarchicalInformationId" type="xsd:string" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetHierarchicalInformationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHierarchicalInformationPath" type="i0:ArrayOfItemPathType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfItemPathType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ContainerItem" type="i0:ItemPathType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ItemPathType">
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:string">
+            <xsd:attribute name="order" type="xsd:integer" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:element name="GetHistoricalDataAggregationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationParameter" type="i0:GetHistoricalDataAggregationParameterType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationFilter" type="i0:GetHistoricalDataAggregationFilterType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GetHistoricalDataAggregationParameterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetHistoricalDataAggregationFilterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AggregationGroup" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AggregationPeriods" type="i0:ArrayOfInteger" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AggregationType" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfInteger">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Period" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetHistoricalDataAggregationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationResponseStatus" type="i0:HistoricalDataAggregationResponseStatusType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetHistoricalDataAggregationRecords" type="i0:HistoricalDataAggregationRecordsType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="HistoricalDataAggregationResponseStatusType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeTo" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HistoricalDataAggregationRecordsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ValueItemId" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Unit" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="List" type="i0:ArrayOfAggregationRecordType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:ArrayOfMetaModelType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfAggregationRecordType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AggregationRecord" type="i0:AggregationRecordType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AggregationRecordType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Period" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Unsubscribe">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UnsubscribeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Renew">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Expires" type="xsd:duration" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RenewResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Expires" type="xsd:duration" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetNotificationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="NotificationId" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetNotificationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="SubscriptionId" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="NotificationId" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="Events" type="i0:ItemChangedEvents" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ItemChangedEvents">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="SystemEvents" type="i0:ArrayOfSystemEventsType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ValueChangedEvents" type="i0:ArrayOfValueChangedEventType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="HierarchyChangedEvents" type="i0:ArrayOfHierarchyChangedEventType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="AlarmEvents" type="i0:ArrayOfAlarmEventType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfSystemEventsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SystemEvent" type="i0:SystemEventsType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SystemEventsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="ID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Message" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Priority" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SourceID" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SourceName" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Metadata" type="i0:ArrayOfMetaModelType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfValueChangedEventType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Event" type="i0:ValueChangedEventType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ValueChangedEventType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfHierarchyChangedEventType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Event" type="i0:HierarchyChangedEventType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HierarchyChangedEventType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="Id" type="xsd:string" />
+          <xsd:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Type" type="xsd:integer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSystemEventsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetSystemEventsParameter" type="i0:GetEventsParameterType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetSystemEventsFilter" type="i0:GetSystemEventsFilterType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+          <xsd:attribute name="metadata" type="xsd:boolean" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GetEventsParameterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetSystemEventsFilterType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="PriorityFrom" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="PriorityTo" type="xsd:integer" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeFrom" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="TimeTo" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Types" type="i0:ArrayOfString3" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Ids" type="i0:ArrayOfString2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSystemEventsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetSystemEventsResponseStatus" type="i0:GetSystemEventsResponseStatusType" />
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetSystemEventsSystemEvents" type="i0:ArrayOfSystemEventsType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GetSystemEventsResponseStatusType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="MoreDataAvailable" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="MoreDataRef" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSystemEventTypesRequest">
+        <xsd:complexType>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetSystemEventTypesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="GetSystemEventTypesTypes" type="i0:ArrayOfString3" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UnforceValuesRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="UnforceValuesIds" type="i0:ArrayOfString2" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UnforceValuesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="UnforceValuesResults" type="i0:ArrayOfResultType" />
+          </xsd:sequence>
+          <xsd:attribute name="version" type="xsd:string" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.schneider-electric.com/common/dataexchange/2011/05/DataExchangeInterface/Fault">
+      <xsd:element name="Fault_Operation_Not_Supported" type="xsd:string" />
+      <xsd:element name="Fault_Permission_Denied" type="xsd:string" />
+      <xsd:element name="Fault_TimeOut" type="xsd:string" />
+      <xsd:element name="Fault_Missing_Id_List" type="xsd:string" />
+      <xsd:element name="Fault_Missing_Value_List" type="xsd:string" />
+      <xsd:element name="Fault_Unequal_Lists" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Reference" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Id" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Time" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Priority" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Type" type="xsd:string" />
+      <xsd:element name="Fault_InvalidRequest" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Operation_Failed" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_EventMode" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_EventType" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Alarmfilter" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Missing_Valueitem_List" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Value" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Group" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Subscription" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Subscription_Terminated" nillable="true" type="xsd:string" />
+      <xsd:element name="Fault_Invalid_Notification_Id" nillable="true" type="xsd:string" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="DataExchange">
+    <wsdl:port name="CustomBinding_IDataExchange" binding="i0:CustomBinding_IDataExchange">
+      <soap12:address location="http://172.30.10.11/EWS/DataExchange.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
