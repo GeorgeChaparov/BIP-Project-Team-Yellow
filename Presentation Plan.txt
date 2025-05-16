@@ -1,0 +1,36 @@
+Slides
+1)Name of project and names of our team
+
+
+2)Explaining the task of the project
+
+2.1)We had to split the tasks between the members of the project. Our goal was to understand how the solar panels work, how to integrate them with smart home and how to manage the battery.
+
+2.2)Our first task was to connect to the SQL server to fetch live information about electricity generation and consumption. Afterwards we found a way to connect the Nordpool API and also fetch the data about the forecast of the weather. 
+
+2.3)We combined all these parts of the project together and made an algorithm that calculated what state should the battery be at any given moment.
+
+2.4)At the end we made a front-end GUI for the user to input what time he comes home and what price is acceptable to buy and sell from Nordpool.
+
+
+3)Flow chart whole slide
+4)Flow chart in more detail day time
+5)Flow chart in more detail night time
+6)Screenshot of the site that shows kW and battery 
+7)Screenshot of front-side GUI
+
+
+
+
+8)The conclusion of our project
+
+All our team members perfectly did their assigned parts for the project. We managed to fully finish the tasks given.
+
+Our team during this project successfully used real-time data of energy generation from solar panels and consumption. Using our algorithm, we changed the state of the battery using the prices from Nordpool and the forecasts of weather. By using all this data we created the most efficient method to buy from the grid or to sell the solar power or to fill the battery.
+
+In the future, we will be able to improve the algorithm by using more accurate forecasting and rebalancing the flow-chart, but the current algorithm can be deployed even now.
+
+
+9)"Thank you for listening" slide(the end)
+
+
